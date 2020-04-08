@@ -33,6 +33,25 @@ public class Rocket : MonoBehaviour
         Rotate();            //Function which handles rotation of rocket
         
     }
+
+    void OnCollisionEnter(Collision collision)  // This function will be called whenever rocket collides with anything
+    {
+       switch(collision.gameObject.tag)     //collision.gameObject.tag gives us the tag of the gameobject with which rocket has collided
+        {
+            case "Friendly":
+                print("Ok, Collided with friendly object!");
+                break;
+
+            case "Fuel":
+                print("More Fuel Added to Rocket!");
+                break;
+
+            default:
+                print("You are Dead!");       //Rocket collided with unfriendly object.
+                break;
+        }
+    }
+
                                       // Unity uses left handed system, this means pressing A turns anti-clockwise
                                      //and pressing D, turns clockwise direction
 
