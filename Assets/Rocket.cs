@@ -92,6 +92,17 @@ public class Rocket : MonoBehaviour
 
         }
 
+        else if (Input.GetKey(KeyCode.LeftControl))    //Read about Input.GetKey() from the concepts of C# folder
+        {
+            rigidBody.AddRelativeForce(Vector3.down * mainThrust);          // Press Left Control for Thrusting the rocket downwards
+
+            if (!rocketSound.isPlaying)  //If rocketSound is not playing then play else not, so as to not repeat it.
+            {
+                rocketSound.Play();    //To play the audio source when Space is pressed
+            }
+
+        }
+
         else
         {
             rocketSound.Stop();   // To stop playing rocketSound
